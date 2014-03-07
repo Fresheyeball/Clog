@@ -1,6 +1,6 @@
 {
-  "name": "Clog",
-  "version": "0.0.0",
+  "name": "clog-cli",
+  "version": "0.0.1",
   "description": "Clog your console for fun and profit",
   "main": "index.js",
   "directories": {
