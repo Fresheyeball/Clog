@@ -1,0 +1,40 @@
+{
+  "name": "Clog",
+  "version": "0.0.0",
+  "description": "Clog your console for fun and profit",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "karma start test/karma.conf.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fresheyeball/Clog.git"
+  },
+  "keywords": [
+    "console",
+    "logging"
+  ],
+  "author": "Isaac Shapira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fresheyeball/Clog/issues"
+  },
+  "dependencies" : {
+    "coffee-script"             : "*",
+    "lodash"                    : "*"
+  },
+  "devDependencies" : {
+    "mocha"                     : "*",
+    "chai"                      : "*",
+    "sinon-chai"                : "~2.4.0",
+    "sinon"                     : "~1.7.3",
+    "karma"                     : "*",
+    "karma-mocha"               : "*",
+    "karma-coffee-preprocessor" : "*",
+    "karma-phantomjs-launcher"  : "*",
+    "karma-chrome-launcher"     : "*"
+  }
+}
