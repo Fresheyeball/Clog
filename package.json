@@ -1,6 +1,6 @@
 {
-  "name": "clog-cli",
-  "version": "0.0.1",
+  "name": "clogjs",
+  "version": "0.0.0",
   "description": "Clog your console for fun and profit",
   "main": "index.js",
   "directories": {

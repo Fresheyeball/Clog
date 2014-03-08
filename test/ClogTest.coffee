@@ -6,7 +6,7 @@ describe 'Clog', ->
   clog         = null
   window.debug = 1
 
-  init = (isChrome) ->    
+  init = (isChrome) ->
     clog = new window.__ClogClass()
     clog._console =
       log      : sinon.spy()
