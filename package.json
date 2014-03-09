@@ -23,8 +23,7 @@
     "url": "https://github.com/Fresheyeball/Clog/issues"
   },
   "dependencies" : {
-    "coffee-script"             : "*",
-    "lodash"                    : "*"
+    "coffee-script"             : "*"
   },
   "devDependencies" : {
     "mocha"                     : "*",

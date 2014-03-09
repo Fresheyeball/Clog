@@ -1,6 +1,7 @@
 MAXCLOG = 2000
 
-_ = require 'lodash' if require?
+isString = (value) ->
+  typeof value is "string" or false
 
 class Clog
   constructor : ->
@@ -28,7 +29,7 @@ class Clog
           'http://images.wikia.com/sawfilms/images/8/8c/Game_Over_1.gif'
           'http://2.bp.blogspot.com/-zNngZiOlI3g/URurPtgBfSI/AAAAAAAASY4/Tvzxso3_PKA/s400/Game-Over-Man-Game-Over.jpg'
         ]
-        @_console.image gameOverGifs[_.random 0, gameOverGifs.length - 1]
+        @_console.image gameOverGifs[Math.floor Math.random() * gameOverGifs.length]
         @_console.log enough
       else
         @_console.log '''
@@ -62,7 +63,7 @@ class Clog
       meta = meta[0].substr "Clog.test(".length
       meta = meta.substr 0, meta.length - 1
       meta = meta.split ','
-      meta = _.map meta, (d) -> d.trim().replace('this.','@')
+      meta = (d.trim().replace('this.','@') for d in meta)
       res  = {}
       res[meta[i]] = arguments[i] for i in [0...meta.length]
       @log res
@@ -138,7 +139,7 @@ class Clog
         @_console.log "#{bashColor} #{str} #{END_COLOR}"
 
   _prepForColor : (str) ->
-    str = JSON.stringify str unless _.isString str
+    str = JSON.stringify str unless isString str
     "#{@_arrow()} #{str}"
 
   red    : (str, args...) -> @_color 'red',      @_prepForColor(str), args...
@@ -153,13 +154,13 @@ class Clog
 
   keanu : (isBig) ->
     keanu     = ['Woah', 'I am the one.', 'Party on', 'No way', 'Woah', 'I know kung fu', 'Excellent!', 'Huh?', 'Whoah..', 'All we are is dust in the wind, dude', 'Most Triumphant', 'Strange things are a foot at the Circle K', 'no way', '69 Dudes!', 'Those are historic babes!', 'Bodacious!','Fully full on evil robots','So-crates','Morpheous',"I'm going to learn jiu jitsu?",'My name is Neo.','No.','take 1 step out and take my hand','freeze','id wanna know what bus it was','bomb on bus','i need to know can you handle this bus','the man has no time','theres a gap in the freeway','thats all we can do','floor it','thats against the rules','im gonna rip your fucking spine out i swear to god','pop quiz asshole','your crazy your fuckin crazy','he lost his head']
-    thisKeanu = 'KEANU -> ' + keanu[_.random(keanu.length - 1)]
+    thisKeanu = 'KEANU -> ' + keanu[Math.floor Math.random() * keanu.length]
     unless @_bail()
-      if @_console.image and not _.isString isBig
+      if @_console.image and not isString isBig
         if isBig
         then @_console.image 'http://replygif.net/i/537.gif'
         else @_console.image 'http://www.quotespapa.com/images/mini-keanu-reeves.jpg'
-      else if _.isString isBig
+      else if isString isBig
         @_color isBig, thisKeanu
       else
         @_console.log  thisKeanu
@@ -169,11 +170,11 @@ class Clog
   arnold : (color) ->
     arnold     = ["It's simple, if it jiggles, it's fat.", 'Milk is for babies. When you grow up you have to drink beer.', 'The best activities for your health are pumping and humping.', "You're Fiuhed!","Cookies, who told you you could MY COOKIES!!!!??","Who is your Daddy, and what does he do?","I'm detective John Kimble","Get in the chopper, now!!", "Guwhah ruuugh guawh!", "Grrrgh uu ahhh!", "Naaa gruh aagghh!!!","Grrruu guaw ghh raaaaaagh!","IT'S NOT A TUMOR!","SHAAAD AAAAAAAAAAAAAAAP!",'I let him go..','He had to split',"Remember Sully when I said I'd kill you last? I lied.","You are not sending me to the coolah...","Stop CHEEERING ME UP!","You are one ugly motherfucker...","Do it.","I'll be back.","Foget it, I'm nut goiing to sit on yo lap" ]    
     arnoldIMG  = ['http://s3-ec.buzzfed.com/static/enhanced/terminal05/2012/9/18/18/anigif_enhanced-buzz-12040-1348006909-1.gif','http://s3-ec.buzzfed.com/static/enhanced/web05/2012/9/18/14/anigif_enhanced-buzz-1597-1347992379-13.gif','http://s3-ec.buzzfed.com/static/enhanced/web05/2012/9/18/15/anigif_enhanced-buzz-11594-1347996346-0.gif','http://s3-ec.buzzfed.com/static/enhanced/web05/2012/9/18/18/anigif_enhanced-buzz-30295-1348006023-2.gif','http://s3-ec.buzzfed.com/static/enhanced/web04/2012/9/18/17/anigif_enhanced-buzz-6990-1348002721-21.gif','http://s3-ec.buzzfed.com/static/enhanced/web05/2012/9/18/17/anigif_enhanced-buzz-26908-1348003972-9.gif','http://s3-ec.buzzfed.com/static/enhanced/web05/2012/9/18/17/anigif_enhanced-buzz-26853-1348003850-7.gif','http://s3-ec.buzzfed.com/static/enhanced/web04/2012/9/18/18/anigif_enhanced-buzz-13635-1348008096-4.gif','http://s3-ec.buzzfed.com/static/enhanced/web03/2012/9/19/10/anigif_enhanced-buzz-10529-1348063943-15.gif','http://s3-ec.buzzfed.com/static/enhanced/web03/2012/9/19/10/anigif_enhanced-buzz-10529-1348063918-13.gif']
-    thisArnold = 'ARNOLD -> ' + arnold[_.random(arnold.length - 1)]
+    thisArnold = 'ARNOLD -> ' + arnold[Math.floor Math.random() * arnold.length]
     unless @_bail()
       if @_console.image and not color
-        @_console.image arnoldIMG[_.random(arnoldIMG.length - 1)]
-      else if _.isString color
+        @_console.image arnoldIMG[Math.floor Math.random() * arnoldIMG.length]
+      else if isString color
         @_color color, thisArnold
       else
         @_console.log  thisArnold
