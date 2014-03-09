@@ -8,8 +8,8 @@ describe 'Clog', ->
   chroTemp     = window.chrome
 
   init = (isChrome) ->
-    clog = new window.__ClogClass()
     window.chrome = true if isChrome
+    clog = new window.__ClogClass()
     clog._console =
       log      : sinon.spy()
       warn     : sinon.spy()

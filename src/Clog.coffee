@@ -10,6 +10,7 @@ class Clog
     @_console       = console
     @_level         = (if window? and window.debug then window.debug else 0)
     @_console.image = null unless (window? and window.chrome and window.console.image)
+    @_isChrome      = (window? and window.chrome)
 
   setLevel = (level) -> @_level = level
 
@@ -50,7 +51,7 @@ class Clog
     return @warn 'Clog.counter needs a name' unless name
     @_counter       ?= {}
     @_counter[name] ?= 0
-    if window.chrome
+    if @_isChrome
     then @_console.log "#{@_arrow()} #{name} -> %c#{++@_counter[name]}", "font-weight:bold;font-size:14px;", 'times'
     else @_console.log "#{@_arrow()} #{name} -> #{++@_counter[name]} times"
 
@@ -106,7 +107,7 @@ class Clog
     @_console.image = false
 
   huge : (str) ->
-    if window.chrome
+    if @_isChrome
       @_console.log "%c#{str}", '''
         font-size:60px;color:#fff;text-shadow:0 1px 0 #ccc ,0 2px 0 #c9c9c9 ,0 3px 0 #bbb ,
         0 4px 0 #b9b9b9 ,0 5px 0 #aaa ,0 6px 1px rgba(0,0,0,.1),
@@ -123,7 +124,7 @@ class Clog
 
   _color : (color, str, args...) ->
     unless @_bail()
-      if window.chrome
+      if @_isChrome
         @_console.log "%c#{str}", "color:#{color};font-weight:bold;", args...
       else
         END_COLOR = `'\033[0m'`
