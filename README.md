@@ -29,12 +29,10 @@ taken by a vastly inferior library).
 or you can simply include the file in your browser like so:
 
 ```
-<script type="text/javascript" src="/path/to/lodash.js"></script>
 <script type="text/javascript" src="/path/to/console.image.js"></script>
 <script type="text/javascript" src="/path/to/Clog.js"></script>
 ```
 
-[Lodash](http://lodash.com/) is required for Clog to work in the browser. 
 [Console.image](https://github.com/adriancooney/console.image) is not
 required, but is STRONGLY recommend to receive fun and profit.
 
