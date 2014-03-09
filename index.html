@@ -38,37 +38,177 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="clog" class="anchor" href="#clog"><span class="octicon octicon-link"></span></a>Clog</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Clog your console for fun and profit! </p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>This is a simple logging library written to address 
+the common tasks first and provide sugar. It is Chrome browser oriented
+but works with node.js as well. </p>
+
+<p>Clog is written in CoffeeScript, but you can use it in JavaScript with 
+no problems. However, the examples below will be in CoffeeScript.</p>
+
+<hr><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Clog is available on npm as <code>clogjs</code> (as <code>clog</code> has already been
+taken by a vastly inferior library).</p>
+
+<pre><code>// package.json
+{
+  "devDependencies" : {
+    "clogjs" : "*"
+  }
+}
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>or you can simply include the file in your browser like so:</p>
+
+<pre><code>&lt;script type="text/javascript" src="/path/to/lodash.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/path/to/console.image.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/path/to/Clog.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p><a href="http://lodash.com/">Lodash</a> is required for Clog to work in the browser. 
+<a href="https://github.com/adriancooney/console.image">Console.image</a> is not
+required, but is STRONGLY recommend to receive fun and profit.</p>
+
+<hr><h2>
+<a name="things-it-do" class="anchor" href="#things-it-do"><span class="octicon octicon-link"></span></a>Things it do:</h2>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="basics" class="anchor" href="#basics"><span class="octicon octicon-link"></span></a>Basics</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<pre><code>  Clog.log 'howdy'
+</code></pre>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>will log out <code>"0 ---&gt; howdy"</code>. Clog keeps and internal index of logs, so most
+logs will start with <code>"#{index} ---&gt;"</code>. <code>Clog.log</code> will also accept multiple arguments
+just like <code>console.log</code>.</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<pre><code>  Clog.info 'neat!'
+  Clog.warn 'super neat!'
+</code></pre>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<p>The above wraps <code>console.info</code> and <code>console.warn</code> in the same way that <code>Clog.log</code> wraps <code>console.log</code>.</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<hr><h3>
+<a name="colors" class="anchor" href="#colors"><span class="octicon octicon-link"></span></a>Colors</h3>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<p>Clog provides easy access to colors! Simply call the colors like so </p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<pre><code>  Clog.red    "I'm red!"
+  Clog.blue   "I'm blue!"
+  Clog.green  "I'm green!"
+  Clog.orange "I'm orange!"
+  Clog.purple "I'm purple!"
+</code></pre>
+
+<p>and yes this works in Chrome and Nodejs. Prefer more brevity? you can also use each color
+as the first three letters. For example you can call <code>Clog.purple</code> as <code>Clog.pur</code>.</p>
+
+<p>Color commands will also <code>JSON.stringify</code> the first argument for you.</p>
+
+<hr><h3>
+<a name="keanu" class="anchor" href="#keanu"><span class="octicon octicon-link"></span></a>Keanu</h3>
+
+<p>Its often necessary to write something simple to the console, in-order to just see if that line of code executes. Many write
+something like:</p>
+
+<pre><code>  console.log 'woah'
+</code></pre>
+
+<p>with Clog, you can do abit better, with Keanu. <code>Clog.keanu()</code> does the same job as <code>console.log 'woah'</code>, but will instead
+log out a random Keanu Reeves quote! If you have <code>console.image</code> installed you will get a small image of Keanu looking good in the matrix. There is also:</p>
+
+<pre><code>  // logs out either a quote or small image from the matrix
+  Clog.keanu()
+
+  // logs a nice big gif of Keanu
+  Clog.keanu true 
+
+  // also colored keanus! all supported colors available
+  Clog.keanu 'red'
+</code></pre>
+
+<hr><h3>
+<a name="arnold" class="anchor" href="#arnold"><span class="octicon octicon-link"></span></a>Arnold</h3>
+
+<p>With similar motivation to Keanu, sometimes you log something simple that you expect to log, and it doesn't. There is a bug in your code! So you leave that console message around and rejoice when you finally see it grace your terminal. Well here is where Arnold comes in. Instead of leaving yourself a message like <code>console.log 'success'</code> go big with <code>Clog.arnold()</code>. Arnold if you have <code>console.image</code> installed, you will be greeted with a random gif of
+Arnold Schwarzenegger kicking ass, like you just kicked ass. </p>
+
+<pre><code>  // logs out either a quote or a big gif of ass kickery
+  Clog.arnold()
+
+  // also colored arnolds! all supported colors available
+  Clog.arnold 'blue'
+</code></pre>
+
+<hr><h3>
+<a name="now-and-since" class="anchor" href="#now-and-since"><span class="octicon octicon-link"></span></a>Now and Since</h3>
+
+<p>For measuring time of code execution you can use <code>Clog.now()</code> and <code>Clog.since()</code> like so:</p>
+
+<pre><code>Clog.now()
+$.getJSON '/slowness.json', (data) -&gt;
+  Clog.since()
+</code></pre>
+
+<p>This is just candy wrapping <code>console.time</code> (the little known native time measurement console
+feature). You can optionally name your measurement <code>Clog.now('ajax delay')</code> (useful if you have more than one time measurement going on), otherwise it will default to <code>'tardis'</code> as the label.</p>
+
+<hr><h3>
+<a name="test" class="anchor" href="#test"><span class="octicon octicon-link"></span></a>Test</h3>
+
+<p>Have you written console logs to determine the value of variables? Do they look like this:</p>
+
+<pre><code>  var foo = 5, bar = 60;
+  console.log 'foo', foo, 'bar', bar
+  // or 
+  console.log 'foo '+foo, 'bar '+bar
+</code></pre>
+
+<p>Its annoying to write extra code just to know the name of the variable you are logging.
+With Clog you have:</p>
+
+<pre><code>  var foo = 5, bar = 60;
+  Clog.test foo, bar
+  // roughly equivalent to 
+  console.log
+    foo : 5
+    bar : 60
+</code></pre>
+
+<hr><h3>
+<a name="count" class="anchor" href="#count"><span class="octicon octicon-link"></span></a>Count</h3>
+
+<p>For easy logging out the number of times code has executed, simply call count like so:</p>
+
+<pre><code>  for [0...5]
+    Clog.count 'simple loop'
+  // will log out
+  console.log 'simple loop -&gt; 1 times'
+  console.log 'simple loop -&gt; 2 times'
+  console.log 'simple loop -&gt; 3 times'
+  console.log 'simple loop -&gt; 4 times'
+  console.log 'simple loop -&gt; 5 times'
+  console.log 'simple loop -&gt; 6 times'
+
+</code></pre>
+
+<hr><h3>
+<a name="game-over" class="anchor" href="#game-over"><span class="octicon octicon-link"></span></a>Game Over</h3>
+
+<p>If you Clog out more than 2000 logs Clog will log out a <code>'GAME OVER'</code> message like below:
+<img src="https://i.chzbgr.com/maxW500/7780675840/h4A8F373B/" alt="GAMEOVER">
+and then die to prevent your browser from crashing.</p>
+
+<hr><h3>
+<a name="error-memes" class="anchor" href="#error-memes"><span class="octicon octicon-link"></span></a>Error Memes</h3>
+
+<p>This one is really only if you have <code>console.image</code>. There are some errors you can foresee as a developer. Ones that should stop everything until its fixed. Ones that are the result of you breaking things you know you should not break. When that happens its painful, so why not preemptively inject some levity into the situation? <code>Clog.meme</code> fires <code>console.image</code>'s <code>console.meme</code> functionality along with a native Error. If you are in an environment without <code>console.image</code> it just throws a native Error.</p>
       </section>
 
     </div>
