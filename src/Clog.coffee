@@ -151,9 +151,6 @@ class Clog
   gre    : (args...)      -> @green  args...
   pur    : (args...)      -> @purple args...
 
-  _andrew : (memeTwo, logMessage) ->
-    @meme "hey developer", memeTwo, "http://i.imgur.com/aQ3wwGi.jpg", logMessage
-
   keanu : (isBig) ->
     keanu     = ['Woah', 'I am the one.', 'Party on', 'No way', 'Woah', 'I know kung fu', 'Excellent!', 'Huh?', 'Whoah..', 'All we are is dust in the wind, dude', 'Most Triumphant', 'Strange things are a foot at the Circle K', 'no way', '69 Dudes!', 'Those are historic babes!', 'Bodacious!','Fully full on evil robots','So-crates','Morpheous',"I'm going to learn jiu jitsu?",'My name is Neo.','No.','take 1 step out and take my hand','freeze','id wanna know what bus it was','bomb on bus','i need to know can you handle this bus','the man has no time','theres a gap in the freeway','thats all we can do','floor it','thats against the rules','im gonna rip your fucking spine out i swear to god','pop quiz asshole','your crazy your fuckin crazy','he lost his head']
     thisKeanu = 'KEANU -> ' + keanu[_.random(keanu.length - 1)]
