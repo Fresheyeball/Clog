@@ -5,8 +5,10 @@ window.CONFIG = BUILD_MODE : false
 describe 'Clog', ->
   clog         = null
   window.debug = 1
+  chroTemp     = window.chrome
 
-  init = (isChrome) ->    
+  init = (isChrome) ->
+    window.chrome = true if isChrome
     clog = new window.__ClogClass()
     clog._console =
       log      : sinon.spy()
@@ -19,6 +21,8 @@ describe 'Clog', ->
       timeEnd  : sinon.spy()
       groupEnd : sinon.spy()
       trace    : sinon.spy()
+
+  afterEach -> window.chrome = chroTemp
 
   describe 'basics', ->
     beforeEach -> init()

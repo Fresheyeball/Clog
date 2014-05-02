@@ -1,5 +1,5 @@
 {
-  "name": "clog-cli",
+  "name": "clogjs",
   "version": "0.0.1",
   "description": "Clog your console for fun and profit",
   "main": "index.js",
@@ -23,8 +23,7 @@
     "url": "https://github.com/Fresheyeball/Clog/issues"
   },
   "dependencies" : {
-    "coffee-script"             : "*",
-    "lodash"                    : "*"
+    "coffee-script"             : "*"
   },
   "devDependencies" : {
     "mocha"                     : "*",
