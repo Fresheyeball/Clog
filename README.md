@@ -1,13 +1,15 @@
 Clog
 ====
 
-Clog your console for fun and profit! 
+Clog your console for fun and profit!
 
-This is a simple logging library written to address 
+[![Build Status](https://travis-ci.org/Fresheyeball/Clog.svg?branch=master)](https://travis-ci.org/Fresheyeball/Clog)
+
+This is a simple logging library written to address
 the common tasks first and provide sugar. It is Chrome browser oriented
-but works with node.js as well. 
+but works with node.js as well.
 
-Clog is written in CoffeeScript, but you can use it in JavaScript with 
+Clog is written in CoffeeScript, but you can use it in JavaScript with
 no problems. However, the examples below will be in CoffeeScript.
 
 ---
@@ -60,7 +62,7 @@ The above wraps `console.info` and `console.warn` in the same way that `Clog.log
 
 ### Colors
 
-Clog provides easy access to colors! Simply call the colors like so 
+Clog provides easy access to colors! Simply call the colors like so
 
 ```
   Clog.red    "I'm red!"
@@ -94,7 +96,7 @@ log out a random Keanu Reeves quote! If you have `console.image` installed you w
   Clog.keanu()
 
   // logs a nice big gif of Keanu
-  Clog.keanu true 
+  Clog.keanu true
 
   // also colored keanus! all supported colors available
   Clog.keanu 'red'
@@ -105,7 +107,7 @@ log out a random Keanu Reeves quote! If you have `console.image` installed you w
 ### Arnold
 
 With similar motivation to Keanu, sometimes you log something simple that you expect to log, and it doesn't. There is a bug in your code! So you leave that console message around and rejoice when you finally see it grace your terminal. Well here is where Arnold comes in. Instead of leaving yourself a message like `console.log 'success'` go big with `Clog.arnold()`. Arnold if you have `console.image` installed, you will be greeted with a random gif of
-Arnold Schwarzenegger kicking ass, like you just kicked ass. 
+Arnold Schwarzenegger kicking ass, like you just kicked ass.
 
 ```
   // logs out either a quote or a big gif of ass kickery
@@ -140,7 +142,7 @@ Have you written console logs to determine the value of variables? Do they look 
 ```
   var foo = 5, bar = 60;
   console.log 'foo', foo, 'bar', bar
-  // or 
+  // or
   console.log 'foo '+foo, 'bar '+bar
 ```
 
@@ -150,7 +152,7 @@ With Clog you have:
 ```
   var foo = 5, bar = 60;
   Clog.test foo, bar
-  // roughly equivalent to 
+  // roughly equivalent to
   console.log
     foo : 5
     bar : 60
