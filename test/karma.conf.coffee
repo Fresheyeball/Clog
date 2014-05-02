@@ -6,7 +6,8 @@ module.exports = (config) ->
     frameworks    : ['mocha']
     browsers      : ['PhantomJS']
     reporters     : ['progress']
-    autoWatch     : true
+    autoWatch     : false
+    singleRun     : true
     logLevel      : config.LOG_ERROR
     plugins       : [
       'karma-mocha'
