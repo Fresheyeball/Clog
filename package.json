@@ -30,6 +30,7 @@
     "chai"                      : "*",
     "sinon-chai"                : "~2.4.0",
     "sinon"                     : "~1.7.3",
+    "lodash"                    : "*",
     "karma"                     : "*",
     "karma-mocha"               : "*",
     "karma-coffee-preprocessor" : "*",
