@@ -1,0 +1,25 @@
+{
+  "name": "Clog",
+  "main": "lib/Clog.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Fresheyeball/Clog",
+  "authors": [
+    "Isaac Shapira <fresheyeball@gmail.com>"
+  ],
+  "description": "Clog your console for fun and profit",
+  "keywords": [
+    "console",
+    "colors",
+    "keanu",
+    "reeves"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "src",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
