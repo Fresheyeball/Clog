@@ -20,7 +20,7 @@ Clog is available on npm as `clogjs` (as `clog` has already been
 taken by a vastly inferior library).
 
 ```
-// package.json
+// package.json or bower.json
 {
   "devDependencies" : {
     "clogjs" : "*"
