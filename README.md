@@ -40,6 +40,8 @@ required, but is STRONGLY recommend to receive fun and profit.
 
 ---
 
+``` http://fresheyeball.github.io/Clog/javascripts/Clog.js ```
+
 ## Things it do:
 
 ### Basics
